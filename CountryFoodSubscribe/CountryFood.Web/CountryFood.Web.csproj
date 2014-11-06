@@ -266,6 +266,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CountryFood.Data\CountryFood.Data.csproj">
+      <Project>{8efd642b-d8a4-4a87-8854-b640130f3173}</Project>
+      <Name>CountryFood.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CountryFood.Models\CountryFood.Models.csproj">
+      <Project>{f2a45a83-ab86-425a-90d6-5a51a8c01332}</Project>
+      <Name>CountryFood.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -10,14 +10,17 @@ namespace CountryFood.Web.Controllers
     {
         public ActionResult Index()
         {
+            //return Redirect("http://google.bg");
+            string message = (string)ViewBag.Message;
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            //ViewBag.Message = "Your application description page.";
+            TempData["message"] = "My message here";
+            return RedirectToAction("Index");
+            //return View();
         }
 
         public ActionResult Contact()
