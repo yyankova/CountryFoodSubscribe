@@ -9,6 +9,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryFood.Models", "Count
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryFood.Data", "CountryFood.Data\CountryFood.Data.csproj", "{8EFD642B-D8A4-4A87-8854-B640130F3173}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{371041C8-4314-4981-9FB4-540A5043538B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{67C4F80E-7EF7-456B-A693-ED8F662D310C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{C20E7630-0804-4D3A-8749-E7F25C7C836C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7622C755-9777-4DE3-B3AD-92A7F5245CA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryFood.Common", "CountryFood.Common\CountryFood.Common.csproj", "{52E6670F-E6B2-4024-9635-C52D55149D7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +37,17 @@ Global
 		{8EFD642B-D8A4-4A87-8854-B640130F3173}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EFD642B-D8A4-4A87-8854-B640130F3173}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EFD642B-D8A4-4A87-8854-B640130F3173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52E6670F-E6B2-4024-9635-C52D55149D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52E6670F-E6B2-4024-9635-C52D55149D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52E6670F-E6B2-4024-9635-C52D55149D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52E6670F-E6B2-4024-9635-C52D55149D7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{514F88C3-4F02-4960-948F-816178DECBAE} = {C20E7630-0804-4D3A-8749-E7F25C7C836C}
+		{F2A45A83-AB86-425A-90D6-5A51A8C01332} = {371041C8-4314-4981-9FB4-540A5043538B}
+		{8EFD642B-D8A4-4A87-8854-B640130F3173} = {371041C8-4314-4981-9FB4-540A5043538B}
 	EndGlobalSection
 EndGlobal
