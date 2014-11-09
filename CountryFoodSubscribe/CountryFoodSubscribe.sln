@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7622C755
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryFood.Common", "CountryFood.Common\CountryFood.Common.csproj", "{52E6670F-E6B2-4024-9635-C52D55149D7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryFood.Data.Common", "CountryFood.Data.Common\CountryFood.Data.Common.csproj", "{0F1DF9D8-643A-45CC-953A-8DAC35A65D41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{52E6670F-E6B2-4024-9635-C52D55149D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52E6670F-E6B2-4024-9635-C52D55149D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52E6670F-E6B2-4024-9635-C52D55149D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F1DF9D8-643A-45CC-953A-8DAC35A65D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F1DF9D8-643A-45CC-953A-8DAC35A65D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F1DF9D8-643A-45CC-953A-8DAC35A65D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F1DF9D8-643A-45CC-953A-8DAC35A65D41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,5 +55,6 @@ Global
 		{514F88C3-4F02-4960-948F-816178DECBAE} = {C20E7630-0804-4D3A-8749-E7F25C7C836C}
 		{F2A45A83-AB86-425A-90D6-5A51A8C01332} = {371041C8-4314-4981-9FB4-540A5043538B}
 		{8EFD642B-D8A4-4A87-8854-B640130F3173} = {371041C8-4314-4981-9FB4-540A5043538B}
+		{0F1DF9D8-643A-45CC-953A-8DAC35A65D41} = {371041C8-4314-4981-9FB4-540A5043538B}
 	EndGlobalSection
 EndGlobal

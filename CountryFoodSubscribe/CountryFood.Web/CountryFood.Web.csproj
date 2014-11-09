@@ -266,6 +266,14 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CountryFood.Common\CountryFood.Common.csproj">
+      <Project>{52e6670f-e6b2-4024-9635-c52d55149d7c}</Project>
+      <Name>CountryFood.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CountryFood.Data.Common\CountryFood.Data.Common.csproj">
+      <Project>{0f1df9d8-643a-45cc-953a-8dac35a65d41}</Project>
+      <Name>CountryFood.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CountryFood.Data\CountryFood.Data.csproj">
       <Project>{8efd642b-d8a4-4a87-8854-b640130f3173}</Project>
       <Name>CountryFood.Data</Name>
