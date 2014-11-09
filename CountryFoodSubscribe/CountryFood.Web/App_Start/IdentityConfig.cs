@@ -13,6 +13,7 @@ using Microsoft.Owin.Security;
 using CountryFood.Web.Models;
 
 using CountryFood.Models;
+using CountryFood.Data;
 
 namespace CountryFood.Web
 {

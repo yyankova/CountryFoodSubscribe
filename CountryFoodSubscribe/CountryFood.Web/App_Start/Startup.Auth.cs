@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using CountryFood.Web.Models;
 using CountryFood.Models;
+using CountryFood.Data;
 namespace CountryFood.Web
 {
     public partial class Startup
