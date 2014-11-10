@@ -39,6 +39,10 @@ namespace CountryFood.Data.Migrations
                 this.SeedVillages(context);
             }
 
+            if (context.Producers.Count() == 0)
+            {
+                this.SeedProducers(context);
+            }
 
             base.Seed(context);
         }
@@ -139,6 +143,47 @@ namespace CountryFood.Data.Migrations
             foreach (var village in villages)
             {
                 context.Villages.Add(village);
+            }
+        }
+
+        private void SeedProducers(ApplicationDbContext context)
+        {
+            Random rand = new Random();
+
+            var villageIds = context.Villages.Select(v => v.ID).ToList();
+            int villageCount = villageIds.Count;
+
+            var producers = new List<Producer>
+            {
+                new Producer
+                {
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rhoncus orci vel sem ultricies, non iaculis augue vehicula. In venenatis ipsum nec elit accumsan, id aliquet est faucibus. Aenean ultrices ligula dolor, ac imperdiet sapien ornare et. Curabitur molestie molestie iaculis. Ut porttitor dictum venenatis. Vivamus posuere lacus commodo arcu imperdiet bibendum. Nunc at efficitur velit, at sollicitudin purus. Nunc sollicitudin consequat lorem, id rhoncus odio efficitur at.",
+                    Name = "Green House",
+                    VillageID = villageIds[rand.Next(villageCount)]
+                },
+                new Producer
+                {
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rhoncus orci vel sem ultricies, non iaculis augue vehicula. In venenatis ipsum nec elit accumsan, id aliquet est faucibus. Aenean ultrices ligula dolor, ac imperdiet sapien ornare et. Curabitur molestie molestie iaculis. Ut porttitor dictum venenatis. Vivamus posuere lacus commodo arcu imperdiet bibendum. Nunc at efficitur velit, at sollicitudin purus. Nunc sollicitudin consequat lorem, id rhoncus odio efficitur at.",
+                    Name = "Green Gables",
+                    VillageID = villageIds[rand.Next(villageCount)]
+                },
+                new Producer
+                {
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rhoncus orci vel sem ultricies, non iaculis augue vehicula. In venenatis ipsum nec elit accumsan, id aliquet est faucibus. Aenean ultrices ligula dolor, ac imperdiet sapien ornare et. Curabitur molestie molestie iaculis. Ut porttitor dictum venenatis. Vivamus posuere lacus commodo arcu imperdiet bibendum. Nunc at efficitur velit, at sollicitudin purus. Nunc sollicitudin consequat lorem, id rhoncus odio efficitur at.",
+                    Name = "Blue Skies",
+                    VillageID = villageIds[rand.Next(villageCount)]
+                },
+                new Producer
+                {
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rhoncus orci vel sem ultricies, non iaculis augue vehicula. In venenatis ipsum nec elit accumsan, id aliquet est faucibus. Aenean ultrices ligula dolor, ac imperdiet sapien ornare et. Curabitur molestie molestie iaculis. Ut porttitor dictum venenatis. Vivamus posuere lacus commodo arcu imperdiet bibendum. Nunc at efficitur velit, at sollicitudin purus. Nunc sollicitudin consequat lorem, id rhoncus odio efficitur at.",
+                    Name = "Sun City",
+                    VillageID = villageIds[rand.Next(villageCount)]
+                },
+            };
+
+            foreach (var producer in producers)
+            {
+                context.Producers.Add(producer);
             }
         }
     }
