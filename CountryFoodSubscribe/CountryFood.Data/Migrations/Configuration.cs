@@ -34,6 +34,12 @@ namespace CountryFood.Data.Migrations
                 this.SeedCategories(context);
             }
 
+            if (context.Villages.Count() == 0)
+            {
+                this.SeedVillages(context);
+            }
+
+
             base.Seed(context);
         }
 
@@ -116,15 +122,24 @@ namespace CountryFood.Data.Migrations
 
         private void SeedVillages(ApplicationDbContext context)
         {
-            var villages = new List<Village>(){
-                new Village { Name = "Buhovo"},
-                new Village { Name = "Muhovo"},
-                new Village { Name = "Elhovo"},
-                new Village { Name = "Gorni Lozen"},
-                new Village { Name = "Dolni Lozen"},
-                new Village { Name = "Brulino"},
-            };
-        }
+            Random rand = new Random();
+            var regionIds = context.Regions.Select(r => r.ID).ToList();
+            int regionsCount = regionIds.Count();
 
+            var villages = new List<Village>()
+            {
+                new Village { Name = "Buhovo", RegionID = regionIds.ElementAt(rand.Next(regionsCount))},
+                new Village { Name = "Muhovo", RegionID = regionIds.ElementAt(rand.Next(regionsCount))},
+                new Village { Name = "Elhovo", RegionID = regionIds.ElementAt(rand.Next(regionsCount))},
+                new Village { Name = "Gorni Lozen", RegionID = regionIds.ElementAt(rand.Next(regionsCount))},
+                new Village { Name = "Dolni Lozen", RegionID = regionIds.ElementAt(rand.Next(regionsCount))},
+                new Village { Name = "Brulino", RegionID = regionIds.ElementAt(rand.Next(regionsCount))},
+            };
+
+            foreach (var village in villages)
+            {
+                context.Villages.Add(village);
+            }
+        }
     }
 }
