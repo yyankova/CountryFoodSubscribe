@@ -44,6 +44,11 @@ namespace CountryFood.Data.Migrations
                 this.SeedProducers(context);
             }
 
+            if (context.Products.Count() == 0)
+            {
+                this.SeedProducts(context);
+            }
+
             base.Seed(context);
         }
 
@@ -184,6 +189,46 @@ namespace CountryFood.Data.Migrations
             foreach (var producer in producers)
             {
                 context.Producers.Add(producer);
+            }
+        }
+
+        private void SeedProducts(ApplicationDbContext context)
+        {
+            var milkCategory = context.Categories.Where(c => c.Name == "Milk").First();
+            var herbsCategory = context.Categories.Where(c => c.Name == "Herbs").First();
+
+            var producers = context.Producers.Select(p => p.ID).Take(2).ToList();
+            var products = new List<Product>
+            {
+                new Product
+                {
+                    Category = milkCategory,
+                    Name = "Goat cheeze",
+                    ProducerID = producers[0]
+                },
+                new Product
+                {
+                    Category = herbsCategory,
+                    Name = "Basil",
+                    ProducerID = producers[0]
+                },
+                new Product
+                {
+                    Category = milkCategory,
+                    Name = "Yogurt",
+                    ProducerID = producers[1]
+                },
+                new Product
+                {
+                    Category = herbsCategory,
+                    Name = "Mint",
+                    ProducerID = producers[1]
+                },
+            };
+
+            foreach (var product in products)
+            {
+                context.Products.Add(product);
             }
         }
     }
