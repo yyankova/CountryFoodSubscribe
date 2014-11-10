@@ -4,6 +4,7 @@ namespace CountryFood.Data.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -20,8 +21,20 @@ namespace CountryFood.Data.Migrations
         {
             if (context.Roles.Count() == 0)
             {
-                this.SeedUsers(context);   
+                this.SeedUsers(context);
             }
+
+            if (context.Regions.Count() == 0)
+            {
+                this.SeedRegions(context);
+            }
+
+            if (context.Categories.Count() == 0)
+            {
+                this.SeedCategories(context);
+            }
+
+            base.Seed(context);
         }
 
         private void SeedUsers(ApplicationDbContext context)
@@ -33,7 +46,7 @@ namespace CountryFood.Data.Migrations
             string appUserRole = "appUser";
             string password = "123456";
 
-            //Create Role Test and User Test
+            //Create Role appUser and 2 users
             RoleManager.Create(new IdentityRole(appUserRole));
             UserManager.Create(new AppUser()
             {
@@ -63,8 +76,55 @@ namespace CountryFood.Data.Migrations
             {
                 var result = UserManager.AddToRole(adminUser.Id, adminRole);
             }
-
-            base.Seed(context);
         }
+
+        private void SeedRegions(ApplicationDbContext context)
+        {
+            var regions = new List<Region>()
+            {
+                new Region() { Name = "North-West"},
+                new Region() { Name = "North-Central"},
+                new Region() { Name = "North-East"},
+                new Region() { Name = "South-East"},
+                new Region() { Name = "South-Central"},
+                new Region() { Name = "South-West"},
+            };
+
+            foreach (var region in regions)
+            {
+                context.Regions.Add(region);
+            }
+        }
+
+        private void SeedCategories(ApplicationDbContext context)
+        {
+            var categories = new List<ProductCategory>
+            {
+                new ProductCategory{ Name = "Milk"},
+                new ProductCategory{ Name = "Vegetables"},
+                new ProductCategory{ Name = "Fruit"},
+                new ProductCategory{ Name = "Herbs"},
+                new ProductCategory{ Name = "Cans"},
+                new ProductCategory{ Name = "Dry fruits & veggies"},
+            };
+
+            foreach (var category in categories)
+            {
+                context.Categories.Add(category);
+            }
+        }
+
+        private void SeedVillages(ApplicationDbContext context)
+        {
+            var villages = new List<Village>(){
+                new Village { Name = "Buhovo"},
+                new Village { Name = "Muhovo"},
+                new Village { Name = "Elhovo"},
+                new Village { Name = "Gorni Lozen"},
+                new Village { Name = "Dolni Lozen"},
+                new Village { Name = "Brulino"},
+            };
+        }
+
     }
 }
