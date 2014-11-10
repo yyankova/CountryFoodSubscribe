@@ -49,6 +49,11 @@ namespace CountryFood.Data.Migrations
                 this.SeedProducts(context);
             }
 
+            if (context.Subscriptions.Count() == 0)
+            {
+                this.SeedSubscriptions(context);
+            }
+
             base.Seed(context);
         }
 
@@ -229,6 +234,62 @@ namespace CountryFood.Data.Migrations
             foreach (var product in products)
             {
                 context.Products.Add(product);
+            }
+        }
+
+        private void SeedSubscriptions(ApplicationDbContext context)
+        {
+            Random rand = new Random();
+            var appUsers = context.Users.Where(u => u.Email == "user1@test.com" || u.Email == "user2@test.com").ToList();
+            var products = context.Products.ToList();
+            int productsCount = products.Count;
+
+            var subscribtions = new List<Subscription>
+            {
+                new Subscription
+                {
+                    Address = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+                    Frequency = Frequency.BiWeekly,
+                    PeriodEnd = new DateTime(2014, 12, 31),
+                    PeriodStart = new DateTime(2014, 1, 1),
+                    User = appUsers[0],
+                    State = SubscriptionState.Current,
+                    Product = products[rand.Next(productsCount)],
+                },
+                new Subscription
+                {
+                    Address = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+                    Frequency = Frequency.Monthly,
+                    PeriodEnd = new DateTime(2014, 12, 31),
+                    PeriodStart = new DateTime(2014, 1, 1),
+                    User = appUsers[0],
+                    State = SubscriptionState.Current,
+                    Product = products[rand.Next(productsCount)],
+                },
+                new Subscription
+                {
+                    Address = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+                    Frequency = Frequency.Weekly,
+                    PeriodEnd = new DateTime(2014, 12, 31),
+                    PeriodStart = new DateTime(2014, 1, 1),
+                    User = appUsers[1],
+                    State = SubscriptionState.Waiting,
+                    Product = products[rand.Next(productsCount)],
+                },
+                new Subscription
+                {
+                    Address = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+                    Frequency = Frequency.Yearly,
+                    PeriodEnd = new DateTime(2014, 12, 31),
+                    PeriodStart = new DateTime(2014, 1, 1),
+                    User = appUsers[1],
+                    State = SubscriptionState.Pending,
+                    Product = products[rand.Next(productsCount)],
+                },
+            };
+            foreach (var subscription in subscribtions)
+            {
+                context.Subscriptions.Add(subscription);
             }
         }
     }
