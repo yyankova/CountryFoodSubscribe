@@ -43,6 +43,12 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="Glimpse.AspNet">
       <HintPath>..\packages\Glimpse.AspNet.1.9.2\lib\net45\Glimpse.AspNet.dll</HintPath>
     </Reference>
@@ -277,7 +283,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Infrastructure\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -299,6 +304,10 @@
     <ProjectReference Include="..\CountryFood.Models\CountryFood.Models.csproj">
       <Project>{f2a45a83-ab86-425a-90d6-5a51a8c01332}</Project>
       <Name>CountryFood.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web\CountryFood.Web.Infrastructure\CountryFood.Web.Infrastructure.csproj">
+      <Project>{03e40803-5442-4649-af2d-1b3b7a17fe74}</Project>
+      <Name>CountryFood.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -329,6 +338,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
