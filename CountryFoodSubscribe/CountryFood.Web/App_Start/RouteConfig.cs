@@ -14,6 +14,12 @@ namespace CountryFood.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "By Category",
+                url: "categories/{category}",
+                defaults: new { controller = "Categories", action = "GetProductsFromCategory"}
+                );
+
+            routes.MapRoute(
                 name: "Producers",
                 url: "producers/{id}",
                 defaults: new { controller = "Producers", action = "Display", id = UrlParameter.Optional }

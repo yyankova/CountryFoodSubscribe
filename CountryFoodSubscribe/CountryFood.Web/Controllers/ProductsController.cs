@@ -13,5 +13,11 @@ namespace CountryFood.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Vote()
+        {
+            //Ajax call +1/-1
+            return null;
+        }
     }
 }

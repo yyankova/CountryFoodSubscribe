@@ -9,7 +9,7 @@ namespace CountryFood.Web.Controllers
     public class ProducersController : Controller
     {
         // GET: Producers
-        public ActionResult Display(int? id)
+        public ActionResult Display(int? id, int? page = 1)
         {
             if (id == null)
             {
