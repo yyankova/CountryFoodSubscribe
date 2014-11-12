@@ -78,12 +78,12 @@
             this.context.SaveChanges();
         }
 
-        private IRepository<T> GetRepository<T>() where T : class
+        private IRepository<T> GetRepository<T>() where T : class, IDeletableEntity
         {
             var typeOfModel = typeof(T);
             if (!this.repositories.ContainsKey(typeOfModel))
             {
-                var type = typeof(GenericRepository<T>);
+                var type = typeof(DeletableEntityRepository<T>);
                 this.repositories.Add(typeOfModel, Activator.CreateInstance(type, this.context));
             }
 

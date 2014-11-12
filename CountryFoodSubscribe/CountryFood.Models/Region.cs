@@ -3,7 +3,9 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Region
+    using CountryFood.Data.Common;
+
+    public class Region : DeletableEntity
     {
         public Region()
         {

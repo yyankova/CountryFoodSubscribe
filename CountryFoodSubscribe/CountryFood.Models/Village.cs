@@ -3,7 +3,9 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class Village
+    using CountryFood.Data.Common;
+
+    public class Village : DeletableEntity
     {
         public Village()
         {
