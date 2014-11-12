@@ -24,7 +24,7 @@ namespace CountryFood.Web
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap.cerulean.css",
                       "~/Content/site.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
