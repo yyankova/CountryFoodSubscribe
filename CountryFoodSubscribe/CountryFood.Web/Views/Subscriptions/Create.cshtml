@@ -1,0 +1,35 @@
+﻿@model  CountryFood.Web.InputModels.SubscriptionInputModel
+@{
+    ViewBag.Title = "Subscribe for delivery";
+    ViewBag.PreviousYearCount = 0;
+    ViewBag.NextYearCount = 10;
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>Product name</h3>
+@Html.ValidationSummary()
+@using (Html.BeginForm("Create", "Subscriptions", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.ProductID)
+    <br />
+    @Html.LabelFor(m => m.PeriodStart)
+    @Html.EditorFor(m => m.PeriodStart)
+    <br />
+    @Html.LabelFor(m => m.PeriodEnd)
+    @Html.EditorFor(m => m.PeriodEnd)
+    <br />
+    @Html.LabelFor(m => m.Frequency)
+    @Html.EnumDropDownListFor(m => m.Frequency)
+    <br />
+    @Html.LabelFor(m => m.Address)
+    @Html.EditorFor(m => m.Address)
+    @Html.ValidationMessageFor(m => m.Address)
+    <br />
+    <input type="submit" value="Subscribe"/>
+    <br />
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

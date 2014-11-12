@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CountryFood.Web.InputModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,7 +22,7 @@ namespace CountryFood.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create()
+        public ActionResult Create(ProductInputModel model)
         {
             return null;
         }
@@ -33,7 +34,7 @@ namespace CountryFood.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete()
+        public ActionResult Delete(SubscriptionInputModel model)
         {
             return null;
         }
@@ -45,7 +46,7 @@ namespace CountryFood.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update()
+        public ActionResult Update(ProductInputModel model)
         {
             return null;
         }

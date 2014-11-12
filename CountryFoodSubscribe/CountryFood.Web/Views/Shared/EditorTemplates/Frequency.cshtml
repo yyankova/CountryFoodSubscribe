@@ -1,0 +1,16 @@
+﻿@model CountryFood.Models.Frequency
+@{
+    List<SelectListItem> frequenciesListItems = new List<SelectListItem>();
+    var frequencyValues = Enum.GetValues(typeof(CountryFood.Models.Frequency));
+    foreach (var frequencyValue in frequencyValues)
+    {
+        frequenciesListItems.Add(new SelectListItem() 
+        { 
+            Text = frequencyValue.ToString(), 
+            Value = ((int)frequencyValue).ToString(),
+            Selected = (int)Model == (int)frequencyValue ? true : false
+        });
+    }
+}
+
+@Html.DropDownList("frequency", frequenciesListItems)

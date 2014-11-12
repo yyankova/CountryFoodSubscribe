@@ -65,6 +65,14 @@
             }
         }
 
+        public IRepository<Subscription> Subscriptions
+        {
+            get
+            {
+                return this.GetRepository<Subscription>();
+            }
+        }
+
         public IRepository<Vote> Votes
         {
             get

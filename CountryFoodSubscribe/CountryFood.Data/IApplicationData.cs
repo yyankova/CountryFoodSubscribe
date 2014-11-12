@@ -17,6 +17,8 @@
 
         IRepository<Product> Products { get; }
 
+        IRepository<Subscription> Subscriptions { get; }
+
         IRepository<Vote> Votes { get; }
 
         void SaveChanges();

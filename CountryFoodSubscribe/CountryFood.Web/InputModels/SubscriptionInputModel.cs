@@ -1,11 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace CountryFood.Web.InputModels
+﻿namespace CountryFood.Web.InputModels
 {
+    using System;
+
+    using CountryFood.Models;
+    using System.ComponentModel.DataAnnotations;
+
     public class SubscriptionInputModel
     {
+        [Required]
+        public int ProductID { get; set; }
+
+        [Required]
+        [Display(Name = "Subscription start")]
+        public DateTime PeriodStart { get; set; }
+
+        [Required]
+        [Display(Name = "Subscription end")]
+        public DateTime PeriodEnd { get; set; }
+
+        [Required]
+        [Display(Name = "Frequency of delivery")]
+        public Frequency Frequency { get; set; }
+
+        [Required]
+        [Display(Name = "Address for delivery")]
+        [DataType(DataType.MultilineText)]
+        public string Address { get; set; }
     }
 }

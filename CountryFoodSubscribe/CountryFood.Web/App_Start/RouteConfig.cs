@@ -20,6 +20,12 @@ namespace CountryFood.Web
                 );
 
             routes.MapRoute(
+                name: "Subscriptions",
+                url: "subscriptions/",
+                defaults: new { controller = "Subscriptions", action = "List"}
+                );
+
+            routes.MapRoute(
                 name: "Producers",
                 url: "producers/{id}",
                 defaults: new { controller = "Producers", action = "Display", id = UrlParameter.Optional }
