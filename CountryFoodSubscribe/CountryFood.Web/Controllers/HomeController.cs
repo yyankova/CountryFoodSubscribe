@@ -6,8 +6,10 @@
     using System.Web;
     using System.Web.Mvc;
 
+    using AutoMapper.QueryableExtensions;
+
     using CountryFood.Data;
-    using CountryFood.Web.Models;
+    using CountryFood.Web.ViewModels;
 
     public class HomeController : Controller
     {
@@ -28,7 +30,8 @@
         {
             var products = this.data.Products
                 .All()
-                .Select(p => new ProductViewModel() { Name = p.Name })
+                .Project()
+                .To<ProductViewModel>()
                 .ToList();
             return PartialView("~/Views/Shared/_ProductsPartial.cshtml", products);
         }
@@ -38,7 +41,8 @@
         {
             var producers = this.data.Producers
                 .All()
-                .Select(p => new ProducerViewModel() { Name = p.Name })
+                .Project()
+                .To<ProducerViewModel>()
                 .ToList();
             return PartialView("~/Views/Shared/_ProducersPartial.cshtml", producers);
         }

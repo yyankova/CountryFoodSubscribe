@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
     using System.Web;
     using System.Web.Compilation;
     using System.Web.Mvc;
@@ -25,7 +26,7 @@
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            var automapperConfig = new AutoMapperConfig();
+            var automapperConfig = new AutoMapperConfig(Assembly.GetExecutingAssembly());
             automapperConfig.Execute();
         }
     }
