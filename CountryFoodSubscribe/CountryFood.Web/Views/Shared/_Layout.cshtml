@@ -30,10 +30,61 @@
         </div>
     </div>
     <div class="container body-content">
+        <div>
+            @if (TempData["errorMessage"] != null)
+            {
+                <div class="alert alert-dismissable alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>
+                        @TempData["errorMessage"];
+                    </strong>
+                    @if (TempData["errorMessageLink"] != null)
+                    {
+                        <a href="#" class="alert alert-link">@TempData["errorMessageLink"]</a>
+                    }
+                </div>
+            }
+
+            @if (TempData["successMessage"] != null)
+            {
+                <div class="alert alert-dismissable alert-success">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>@TempData["successMessage"]</strong>
+                    @if (TempData["successMessageLink"] != null)
+                    {
+                        <a href="#" class="alert alert-link">@TempData["successMessageLink"]</a>
+                    }
+                </div>
+            }
+            @if (TempData["infoMessage"] != null)
+            {
+                <div class="alert alert-dismissable alert-info">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>@TempData["infoMessage"]</strong>
+                    @if (TempData["infoMessageLink"] != null)
+                    {
+                        <a href="#" class="alert alert-link">@TempData["infoMessageLink"]</a>
+                    }
+                </div>
+            }
+            @if (TempData["warningMessage"] != null)
+            {
+                <div class="alert alert-dismissable alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <h4>@TempData["warningMessage"]</h4>
+                    @if (TempData["warningMessageLink"] != null)
+                    {
+                        <p>
+                            <a href="#" class="alert alert-link">@TempData["warningMessageLink"]</a>.
+                        </p>
+                    }
+                </div>
+            }
+        </div>
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year</p>
         </footer>
     </div>
 

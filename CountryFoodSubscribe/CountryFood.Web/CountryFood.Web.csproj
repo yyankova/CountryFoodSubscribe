@@ -199,6 +199,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProducersController.cs" />
+    <Compile Include="Controllers\ProducersManagerController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ProductsManagerController.cs" />
+    <Compile Include="Controllers\SubscriptionsController.cs" />
+    <Compile Include="Controllers\SubscriptionsManagerController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -280,9 +286,16 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_ProducersPartial.cshtml" />
     <Content Include="Views\Shared\_ProductsPartial.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Producers\Index.cshtml" />
+    <Content Include="Views\Producers\Display.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ProducersManager\" />
+    <Folder Include="Views\ProductsManager\" />
+    <Folder Include="Views\SubscriptionsManager\" />
+    <Folder Include="Views\Subscriptions\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
