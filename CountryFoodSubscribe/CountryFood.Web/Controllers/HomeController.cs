@@ -13,10 +13,6 @@
     {
         private IApplicationData data;
 
-        public HomeController() : this(new ApplicationData())
-        {
-        }
-
         public HomeController(IApplicationData data)
         {
             this.data = data;

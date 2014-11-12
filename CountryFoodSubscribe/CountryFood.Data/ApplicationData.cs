@@ -11,11 +11,6 @@
         private IApplicationDbContext context;
         private IDictionary<Type, object> repositories;
 
-        public ApplicationData()
-            : this(new ApplicationDbContext())
-        {
-        }
-
         public ApplicationData(IApplicationDbContext context)
         {
             this.context = context;
