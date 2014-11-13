@@ -6,20 +6,68 @@
     using System.Web;
     using System.Web.Mvc;
 
+    using AutoMapper.QueryableExtensions;
+
     using CountryFood.Data;
     using CountryFood.Models;
     using CountryFood.Web.InputModels;
+    using CountryFood.Web.ViewModels;
 
+    [Authorize]
     public class SubscriptionsController : BaseController
     {
-        public SubscriptionsController(IApplicationData data) : base(data)
+        public SubscriptionsController(IApplicationData data)
+            : base(data)
         {
         }
 
-        // Authenticated user
-        public ActionResult List()
+        //TODO: server side paging and sorting and filtering
+        public ActionResult List(string sortProperty, string sortOrder = "asc", int page = 1)
         {
-            return View();
+            var subscriptions = this.Data
+                .Subscriptions
+                .All()
+                .Where(s => s.UserID == UserId)
+                .Project()
+                .To<SubscriptionViewModel>()
+                .ToList();
+
+            return View(subscriptions);
+        }
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                TempData["errorMessage"] = "No subscription id!";
+                return RedirectToAction("List");
+            }
+
+            var subscription = this.Data
+                .Subscriptions
+                .All()
+                .Where(s => s.ID == id)
+                .FirstOrDefault();
+            if (subscription == null)
+            {
+                TempData["errorMessage"] = String.Format("No subscription with id {0}", id);
+                return RedirectToAction("List");
+            }
+
+            if (subscription.UserID != UserId)
+            {
+                TempData["errorMessage"] = String.Format("Subscription with id {0} is not for current user!", id);
+                return RedirectToAction("List");
+            }
+
+            var viewSubscriptionList = new List<Subscription> { subscription };
+            var viewSubscription = viewSubscriptionList
+                .AsQueryable()
+                .Project()
+                .To<SubscriptionViewModel>()
+                .FirstOrDefault();
+
+            return View(viewSubscription);
         }
 
         [HttpGet]
@@ -57,7 +105,7 @@
             //    ModelState.AddModelError("", "Delivery end date must be after delivery subscription date!");
             //    return View("Create", model);
             //}
-            
+
             var subscription = new Subscription()
             {
                 Address = model.Address,

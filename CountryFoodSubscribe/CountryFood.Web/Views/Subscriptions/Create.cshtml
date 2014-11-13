@@ -7,7 +7,7 @@
 
 <h2>@ViewBag.Title</h2>
 <h3>Product name</h3>
-@Html.ValidationSummary()
+@Html.ValidationSummary("", new { @class="text-danger"} )
 @using (Html.BeginForm("Create", "Subscriptions", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     @Html.AntiForgeryToken()
@@ -15,7 +15,7 @@
     @Html.EditorFor(m => m.PeriodStart)
     @Html.EditorFor(m => m.PeriodEnd)
     @Html.EditorFor(m => m.Frequency)
-    @Html.EditorFor(m => m.Address)
+    @Html.EditorFor(m => m.Address, new {placeholder = "Address"})
     
     <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">

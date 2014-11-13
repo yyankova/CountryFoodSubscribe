@@ -6,7 +6,7 @@
         @Html.EnumDropDownListFor(m => m, new { @class = "form-control" })
         @if (ViewData.ModelMetadata.IsRequired)
         {
-            @Html.ValidationMessageFor(m => m)
+            @Html.ValidationMessageFor(m => m, "", new { @class = "text-danger" })
         }
     </div>
 </div>

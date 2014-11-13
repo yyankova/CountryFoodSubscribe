@@ -3,10 +3,10 @@
 <div class="form-group">
     @Html.LabelFor(m => m, new { @class = "col-lg-2 control-label" })
     <div class="col-lg-10">
-        @Html.TextArea("", "", 5, 10, new { @class = "form-control" })
+        @Html.TextArea("", "", 5, 10, new { @class = "form-control", placeholder = ViewData["placeholder"] })
         @if (ViewData.ModelMetadata.IsRequired)
         {
-            @Html.ValidationMessageFor(m => m)
+            @Html.ValidationMessageFor(m => m, "", new { @class = "text-danger" })
         }
     </div>
 </div>

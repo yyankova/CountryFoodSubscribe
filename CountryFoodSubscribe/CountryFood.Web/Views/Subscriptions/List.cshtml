@@ -1,6 +1,21 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "My Subscriptions";
 }
 
 <h2>@ViewBag.Title</h2>
+
+@model IEnumerable<CountryFood.Web.ViewModels.SubscriptionViewModel>
+
+<ul class="list-group">
+    @foreach (var subscription in Model)
+    {
+        <li class="list-group-item">
+            <span class="text-info">
+                @Html.ActionLink(@subscription.Product, "Details", "Subscriptions", new { id = @subscription.Id }, new { href = "/Subscriptions/Details/" + @subscription.Id })
+                by @subscription.Producer
+            </span>
+            <br />
+            <span class="text-info small">@subscription.State</span>
+        </li>
+    }
+</ul>
