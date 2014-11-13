@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Subscribe for delivery";
     ViewBag.PreviousYearCount = 0;
-    ViewBag.NextYearCount = 10;
+    ViewBag.NextYearCount = 3;
 }
 
 <h2>@ViewBag.Title</h2>
@@ -12,18 +12,17 @@
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(m => m.ProductID)
-    <br />
     @Html.EditorFor(m => m.PeriodStart)
-    <br />
     @Html.EditorFor(m => m.PeriodEnd)
-    <br />
     @Html.EditorFor(m => m.Frequency)
-    <br />
     @Html.EditorFor(m => m.Address)
-    @Html.ValidationMessageFor(m => m.Address)
-    <br />
-    <input type="submit" value="Subscribe"/>
-    <br />
+    
+    <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+            <button class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </div>
+    </div>
 }
 
 @section Scripts {

@@ -4,5 +4,9 @@
     @Html.LabelFor(m => m, new { @class = "col-lg-2 control-label" })
     <div class="col-lg-10">
         @Html.TextArea("", "", 5, 10, new { @class = "form-control" })
+        @if (ViewData.ModelMetadata.IsRequired)
+        {
+            @Html.ValidationMessageFor(m => m)
+        }
     </div>
 </div>

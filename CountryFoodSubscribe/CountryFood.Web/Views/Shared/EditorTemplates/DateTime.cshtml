@@ -31,5 +31,9 @@
         @Html.DropDownList("Month", months, new { @class = "form-control" })
         @Html.LabelFor(m => m.Year, new { @class = "control-label" })
         @Html.DropDownList("Year", years, new { @class = "form-control" })
+        @if (ViewData.ModelMetadata.IsRequired)
+        {
+            @Html.ValidationMessageFor(m => m)
+        }
     </div>
 </div>
