@@ -8,19 +8,16 @@
 <h2>@ViewBag.Title</h2>
 <h3>Product name</h3>
 @Html.ValidationSummary()
-@using (Html.BeginForm("Create", "Subscriptions", FormMethod.Post))
+@using (Html.BeginForm("Create", "Subscriptions", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(m => m.ProductID)
     <br />
-    @Html.LabelFor(m => m.PeriodStart)
     @Html.EditorFor(m => m.PeriodStart)
     <br />
-    @Html.LabelFor(m => m.PeriodEnd)
     @Html.EditorFor(m => m.PeriodEnd)
     <br />
-    @Html.LabelFor(m => m.Frequency)
-    @Html.EnumDropDownListFor(m => m.Frequency)
+    @Html.EditorFor(m => m.Frequency)
     <br />
     @Html.LabelFor(m => m.Address)
     @Html.EditorFor(m => m.Address)

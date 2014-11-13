@@ -20,6 +20,7 @@
 
         [Required]
         [Display(Name = "Frequency of delivery")]
+        [DataType("CountryFood.Models.Frequency")]
         public Frequency Frequency { get; set; }
 
         [Required]
