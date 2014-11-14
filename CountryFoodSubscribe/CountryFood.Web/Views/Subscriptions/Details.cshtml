@@ -19,5 +19,13 @@
 @Html.DisplayFor(m => m.Address)
 <br />
 
-@Html.ActionLink("Change Subscription", "Cancel", "Subscriptions", new { id = Model.Id}, new { @class = "btn btn-warning" })
-@Html.ActionLink("Cancel Subscription", "Cancel", "Subscriptions", new { id = Model.Id }, new { @class = "btn btn-danger" })
+@Html.ActionLink("Change Subscription", "Edit", "Subscriptions", new { id = Model.Id}, new { @class = "btn btn-warning" })
+@Html.ActionLink("Cancel Subscription", "Cancel", "Subscriptions", new { id = Model.Id }, new { @class = "btn btn-danger delete-link" })
+
+<div id="delete-dialog" title="Confirmation">
+    <p>Are you sure you want to cancel this Subscription?</p>
+</div>
+
+@section Scripts {
+    @Scripts.Render(@Url.Content("~/Scripts/delete-confirmation-modal.js"))
+}

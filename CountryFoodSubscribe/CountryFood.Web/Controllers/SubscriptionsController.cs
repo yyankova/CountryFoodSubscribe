@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Net;
     using System.Web;
     using System.Web.Mvc;
 
@@ -37,6 +38,12 @@
 
         public ActionResult Details(int? id)
         {
+            if (!Request.IsAjaxRequest())
+            {
+                Response.StatusCode = (int)HttpStatusCode.Forbidden;
+                return this.Content("This action can be invoke only by AJAX call");
+            }
+
             if (id == null)
             {
                 TempData["errorMessage"] = "No subscription id!";
@@ -67,7 +74,7 @@
                 .To<SubscriptionViewModel>()
                 .FirstOrDefault();
 
-            return View(viewSubscription);
+            return PartialView("_SubscriptionDetailsPartial", viewSubscription);
         }
 
         [HttpGet]

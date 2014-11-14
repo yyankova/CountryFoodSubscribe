@@ -1,0 +1,27 @@
+﻿@model CountryFood.Web.ViewModels.SubscriptionViewModel
+<p>
+    @Html.DisplayFor(m => m.Product)
+    <br />
+    @Html.DisplayFor(m => m.Producer)
+    <br />
+    @Html.DisplayFor(m => m.State)
+    <br />
+    @Html.DisplayFor(m => m.PeriodStart)
+    <br />
+    @Html.DisplayFor(m => m.PeriodEnd)
+    <br />
+    @Html.DisplayFor(m => m.Frequency)
+    <br />
+    @Html.DisplayFor(m => m.Address)
+    <br />
+
+    @Html.ActionLink("Change Subscription", "Edit", "Subscriptions", new { id = Model.Id }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Cancel Subscription", "Cancel", "Subscriptions", new { id = Model.Id }, new { @class = "btn btn-danger delete-link" })
+</p>
+<div id="delete-dialog" title="Confirmation">
+    <p>Are you sure you want to cancel this Subscription?</p>
+</div>
+
+@section Scripts {
+    @Scripts.Render(@Url.Content("~/Scripts/delete-confirmation-modal.js"))
+}

@@ -9,13 +9,23 @@
 <ul class="list-group">
     @foreach (var subscription in Model)
     {
+        string detailsSectionId = "subscription-details-" + subscription.Id;
         <li class="list-group-item">
             <span class="text-info">
+                @subscription.Title
                 @Html.ActionLink(@subscription.Product, "Details", "Subscriptions", new { id = @subscription.Id }, new { href = "/Subscriptions/Details/" + @subscription.Id })
                 by @subscription.Producer
             </span>
-            <br />
-            <span class="text-info small">@subscription.State</span>
+            <p>
+                @Ajax.ActionLink("Additional Details", "Details", new { id = subscription.Id}, new AjaxOptions()
+                   {
+                       HttpMethod="GET",
+                       AllowCache = false,
+                       InsertionMode = InsertionMode.ReplaceWith,
+                       UpdateTargetId = @detailsSectionId
+                   })
+            </p>
+            <p id=@detailsSectionId></p>
         </li>
     }
 </ul>
