@@ -19,12 +19,6 @@ namespace CountryFood.Web
                 defaults: new { controller = "Categories", action = "GetProductsFromCategory"}
                 );
 
-            //routes.MapRoute(
-            //    name: "Subscriptions",
-            //    url: "subscriptions/",
-            //    defaults: new { controller = "Subscriptions", action = "List"}
-            //    );
-
             routes.MapRoute(
                 name: "Producers",
                 url: "producers/{id}",
