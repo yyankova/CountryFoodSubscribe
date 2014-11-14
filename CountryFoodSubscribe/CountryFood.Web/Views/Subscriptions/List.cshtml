@@ -10,22 +10,37 @@
     @foreach (var subscription in Model)
     {
         string detailsSectionId = "subscription-details-" + subscription.Id;
+        string displayDetailsLinkId = "display-details-" + subscription.Id;
+        string hideDetailsLinkId = "hide-details-" + subscription.Id;
         <li class="list-group-item">
             <span class="text-info">
                 @subscription.Title
-                @Html.ActionLink(@subscription.Product, "Details", "Subscriptions", new { id = @subscription.Id }, new { href = "/Subscriptions/Details/" + @subscription.Id })
-                by @subscription.Producer
             </span>
             <p>
                 @Ajax.ActionLink("Additional Details", "Details", new { id = subscription.Id}, new AjaxOptions()
                    {
                        HttpMethod="GET",
                        AllowCache = false,
-                       InsertionMode = InsertionMode.ReplaceWith,
+                       InsertionMode = InsertionMode.Replace,
                        UpdateTargetId = @detailsSectionId
-                   })
+                   }, new { id = displayDetailsLinkId, onclick = "displayDetails(id)" })
+                <a id=@(hideDetailsLinkId) onclick="hideDetails(id)" hidden="hidden">Hide Details</a>
             </p>
             <p id=@detailsSectionId></p>
         </li>
     }
 </ul>
+<script>
+    function displayDetails(id) {
+        var self = $("#" + id);
+        self.next().show();
+        self.hide();
+    }
+
+    function hideDetails(id) {
+        var self = $("#" + id);
+        self.hide();
+        self.prev().show();
+        self.parent().next().children().remove();
+    }
+</script>
