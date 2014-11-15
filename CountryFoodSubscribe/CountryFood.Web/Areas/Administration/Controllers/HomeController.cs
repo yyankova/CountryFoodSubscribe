@@ -1,17 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace CountryFood.Web.Areas.Administration.Controllers
+﻿namespace CountryFood.Web.Areas.Administration.Controllers
 {
-    public class HomeController : Controller
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
+    using CountryFood.Data;
+    using CountryFood.Web.Areas.Administration.Controllers.Base;
+
+    public class HomeController : AdminController
     {
+        public HomeController(IApplicationData data)
+            : base(data)
+        {
+        }
+
         // GET: Administration/Home
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            return View(DateTime.Now);
+        }
+
+        [HttpPost]
+        public ActionResult Index(DateTime datePicker)
+        {
+            return RedirectToAction("Index");
         }
     }
 }

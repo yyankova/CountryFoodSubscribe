@@ -203,6 +203,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\Base\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -210,11 +211,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProducersController.cs" />
-    <Compile Include="Controllers\ProducersManagerController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ProducersManagerController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\ProductsManagerController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ProductsManagerController.cs" />
     <Compile Include="Controllers\SubscriptionsController.cs" />
-    <Compile Include="Controllers\SubscriptionsManagerController.cs" />
+    <Compile Include="Areas\Administration\Controllers\SubscriptionsManagerController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -585,11 +586,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Administration\Views\Admin\" />
+    <Folder Include="Areas\Administration\Views\ProducersManager\" />
+    <Folder Include="Areas\Administration\Views\ProductsManager\" />
+    <Folder Include="Areas\Administration\Views\SubscriptionsManager\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Categories\" />
-    <Folder Include="Views\ProducersManager\" />
-    <Folder Include="Views\ProductsManager\" />
-    <Folder Include="Views\SubscriptionsManager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
