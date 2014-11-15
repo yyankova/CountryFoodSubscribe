@@ -3,3 +3,13 @@
 }
 
 @RenderBody()
+
+@section Styles{
+    @Styles.Render("~/Content/kendo-styles")
+    @RenderSection("Styles", required: false)
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/kendo-scripts")
+    @RenderSection("Scripts", required: false)
+}

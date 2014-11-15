@@ -31,7 +31,7 @@ namespace CountryFood.Web
                 "~/Scripts/jquery.unobtrusive-ajax.js"));
 
             bundles.Add(new
-               ScriptBundle("~/bundles/kendo").Include(
+               ScriptBundle("~/bundles/kendo-scripts").Include(
                         "~/Scripts/kendo/kendo.all.min.js",
                         "~/Scripts/kendo/kendo.aspnetmvc.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -50,14 +50,15 @@ namespace CountryFood.Web
         private static void BundleStyles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.cerulean.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.cerulean.css"));
 
             bundles.Add(new
-               StyleBundle("~/Content/kendo").Include(
+               StyleBundle("~/Content/kendo-styles").Include(
                         "~/Content/kendo/kendo.common-bootstrap.min.css",
                         "~/Content/kendo/kendo.default.min.css"));
 
+            bundles.Add(new StyleBundle("~/Content/css-custom").Include(
+                      "~/Content/site.css"));
         }
     }
 }
