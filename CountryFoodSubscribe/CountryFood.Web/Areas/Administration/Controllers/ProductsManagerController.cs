@@ -1,18 +1,52 @@
-﻿using CountryFood.Web.InputModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace CountryFood.Web.Areas.Administration.Controllers
+﻿namespace CountryFood.Web.Areas.Administration.Controllers
 {
-    public class ProductsManagerController : Controller
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+    using Kendo.Mvc.UI;
+    using Kendo.Mvc.Extensions;
+
+    using CountryFood.Data;
+    using CountryFood.Web.Areas.Administration.Controllers.Base;
+    using CountryFood.Web.InputModels;
+    using CountryFood.Web.ViewModels;
+    using CountryFood.Models;
+
+    public class ProductsManagerController : AdminController
     {
-        // GET: ProductsManager
+        public ProductsManagerController(IApplicationData data) : base(data)
+        {
+        }
+
         public ActionResult Index()
         {
             return View();
+        }
+
+        //GetProducts
+        [HttpPost]
+        public ActionResult GetProducts([DataSourceRequest]DataSourceRequest request)
+        {
+            var products =
+                this.Data
+                .Products
+                .All()
+                .ToDataSourceResult(request, p => new ProductViewModel()
+                {
+                    Id = p.ID,
+                    Category = p.Category.Name,
+                    Name = p.Name,
+                    NegativeVotes = p.Votes.Where( v => v.Value < 0).Count(),
+                    PositiveVotes = p.Votes.Where(v => v.Value > 0).Count(),
+                    NumberOfSubscriptions = p.Subscriptions.Count(),
+                    ProducerName = p.Producer.Name
+                });
+
+            return this.Json(products);
         }
 
         [HttpGet]

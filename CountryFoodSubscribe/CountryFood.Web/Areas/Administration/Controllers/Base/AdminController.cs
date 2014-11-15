@@ -15,11 +15,5 @@
         public AdminController(IApplicationData data) : base(data)
         {
         }
-
-        // GET: Administration/Admin
-        public ActionResult Index()
-        {
-            return View();
-        }
     }
 }

@@ -1,0 +1,23 @@
+﻿@using CountryFood.Web.ViewModels
+@model IEnumerable<ProductViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<br />
+<br />
+@(Html.Kendo().Grid<ProductViewModel>()
+    .Name("grid")
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+    .Filterable()
+    .HtmlAttributes(new { style = "height:430px;" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(20)
+        .Read(read => read.Action("GetProducts", "ProductsManager"))
+     )
+)
