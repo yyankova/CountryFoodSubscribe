@@ -27,7 +27,7 @@
             var producers = this.Data.Producers
                 .All()
                 .Project()
-                .To<ProducerViewModel>()
+                .To<ProducerShortViewModel>()
                 .ToList();
 
             return this.Json(producers, JsonRequestBehavior.AllowGet);
