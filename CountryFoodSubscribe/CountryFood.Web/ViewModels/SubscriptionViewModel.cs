@@ -11,13 +11,7 @@
     {
         public int Id { get; set; }
 
-        public string Title
-        { 
-            get
-            {
-                return String.Format("{0} by {1}", Product, Producer);
-            }
-        }
+        public string Title { get; set; }
 
         public string Product { get; set; }
 
@@ -45,6 +39,10 @@
             configuration.CreateMap<Subscription, SubscriptionViewModel>()
                 .ForMember(m => m.Producer,
                     options => options.MapFrom(m => m.Product.Producer.Name));
+
+            configuration.CreateMap<Subscription, SubscriptionViewModel>()
+                .ForMember(m => m.Title,
+                    options => options.MapFrom(m => m.Product.Name + " by " + m.Product.Producer.Name));
         }
     }
 }

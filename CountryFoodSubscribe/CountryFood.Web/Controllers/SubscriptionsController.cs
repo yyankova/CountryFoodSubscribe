@@ -30,7 +30,7 @@
                 .All()
                 .Where(s => s.UserID == UserId)
                 .Project()
-                .To<SubscriptionViewModel>()
+                .To<SubscriptionShortViewModel>()
                 .ToList();
 
             return View(subscriptions);

@@ -16,7 +16,8 @@ namespace CountryFood.Web
             routes.MapRoute(
                 name: "By Category",
                 url: "categories/{category}",
-                defaults: new { controller = "Categories", action = "GetProductsFromCategory"}
+                defaults: new { controller = "Categories", action = "GetProductsFromCategory"},
+                namespaces: new string[] { "CountryFood.Web.Controllers" }
                 );
 
             routes.MapRoute(
@@ -28,7 +29,8 @@ namespace CountryFood.Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "CountryFood.Web.Controllers" }
             );
         }
     }
