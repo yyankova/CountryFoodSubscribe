@@ -2,7 +2,8 @@
 @model IEnumerable<ProductViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Manage Products";
+    string controllerName = "ProductsManager";
 }
 <br />
 <br />
@@ -10,14 +11,36 @@
 <br />
 @(Html.Kendo().Grid<ProductViewModel>()
     .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.Id).Width(60);
+        columns.Bound(p => p.Name);
+        columns.Bound(p => p.ProducerName).EditorTemplateName("Producer");
+        columns.Bound(p => p.Category).EditorTemplateName("Category");
+        columns.Bound(p => p.NumberOfSubscriptions).Width(100).Title("Orders");
+        columns.Bound(p => p.PositiveVotes).Width(60).Title("-");
+        columns.Bound(p => p.NegativeVotes).Width(60).Title("+");
+        columns.Command(command => { command.Destroy(); });
+    })
     .Pageable()
     .Sortable()
     .Scrollable()
     .Filterable()
-    .HtmlAttributes(new { style = "height:430px;" })
+    .ToolBar(toolbar => { toolbar.Create(); })
+    //.HtmlAttributes(new { style = "height:430px;" })
     .DataSource(dataSource => dataSource
         .Ajax()
-        .PageSize(20)
-        .Read(read => read.Action("GetProducts", "ProductsManager"))
+        .PageSize(5)
+        .Model(m => {
+            m.Id(p => p.Id);
+            m.Field(p => p.Id).Editable(false);
+            m.Field(p => p.NumberOfSubscriptions).Editable(false);
+            m.Field(p => p.PositiveVotes).Editable(false);
+            m.Field(p => p.NegativeVotes).Editable(false);
+        }
+        )
+        .Read(read => read.Action("GetProducts", controllerName))
+        .Create(create => create.Action("Create", controllerName))
+        .Destroy(destroy => destroy.Action("Delete", controllerName))
      )
 )

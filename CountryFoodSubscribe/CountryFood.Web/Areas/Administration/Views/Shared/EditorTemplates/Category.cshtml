@@ -1,0 +1,10 @@
+﻿@(Html.Kendo().DropDownList()
+          .Name("Category")
+          .DataTextField("Name")
+          .DataValueField("Id")
+          .OptionLabel("")
+          .DataSource(dataSource => dataSource
+                       .Read(read => read.Action("ReadCategories", "Categories"))
+             )
+)
+

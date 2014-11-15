@@ -1,18 +1,36 @@
-﻿using CountryFood.Web.InputModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace CountryFood.Web.Areas.Administration.Controllers
+﻿namespace CountryFood.Web.Areas.Administration.Controllers
 {
-    public class ProducersManagerController : Controller
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+    using Kendo.Mvc.UI;
+    using Kendo.Mvc.Extensions;
+
+    using CountryFood.Data;
+    using CountryFood.Web.Areas.Administration.Controllers.Base;
+    using CountryFood.Web.InputModels;
+    using CountryFood.Web.ViewModels;
+
+    public class ProducersManagerController : AdminController
     {
-        // GET: ProducersManager
-        public ActionResult Index()
+        public ProducersManagerController(IApplicationData data)
+            : base(data)
         {
-            return View();
+        }
+
+        public ActionResult ReadProducers()
+        {
+            var producers = this.Data.Producers
+                .All()
+                .Project()
+                .To<ProducerViewModel>()
+                .ToList();
+
+            return this.Json(producers, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

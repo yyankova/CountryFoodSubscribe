@@ -37,17 +37,20 @@
                 .All()
                 .ToDataSourceResult(request, p => new ProductViewModel()
                 {
-                    Id = p.ID,
+                    Id = p.ID.ToString(),
                     Category = p.Category.Name,
                     Name = p.Name,
-                    NegativeVotes = p.Votes.Where( v => v.Value < 0).Count(),
-                    PositiveVotes = p.Votes.Where(v => v.Value > 0).Count(),
-                    NumberOfSubscriptions = p.Subscriptions.Count(),
+                    NegativeVotes = p.Votes.Where(v => v.Value < 0).Count().ToString(),
+                    PositiveVotes = p.Votes.Where(v => v.Value > 0).Count().ToString(),
+                    NumberOfSubscriptions = p.Subscriptions.Count().ToString(),
                     ProducerName = p.Producer.Name
                 });
 
             return this.Json(products);
         }
+
+
+
 
         [HttpGet]
         public ActionResult Create()
@@ -60,7 +63,7 @@
         {
             return null;
         }
-
+        
         [HttpGet]
         public ActionResult Delete()
         {
