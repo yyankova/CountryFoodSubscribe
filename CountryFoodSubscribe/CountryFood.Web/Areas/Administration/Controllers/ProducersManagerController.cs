@@ -21,6 +21,11 @@
         {
         }
 
+        public ActionResult Index()
+        {
+            return this.View();
+        }
+
         public ActionResult ReadProducers()
         {
             var producers = this.Data.Producers

@@ -520,6 +520,8 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Producer.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Category.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Product.cshtml" />
+    <Content Include="Areas\Administration\Views\ProducersManager\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\SubscriptionsManager\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Libraries\Kendo\Kendo.Mvc.dll" />
     <Content Include="Scripts\bootstrap.js" />
@@ -605,8 +607,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Admin\" />
-    <Folder Include="Areas\Administration\Views\ProducersManager\" />
-    <Folder Include="Areas\Administration\Views\SubscriptionsManager\" />
     <Folder Include="Views\Categories\" />
   </ItemGroup>
   <ItemGroup>

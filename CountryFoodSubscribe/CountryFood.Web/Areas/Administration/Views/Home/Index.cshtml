@@ -1,16 +1,1 @@
-﻿@model DateTime
-
-Admin home
-
-@Html.Kendo().Calendar().Name("calendar")
-
-@using (Html.BeginForm("Index", null, FormMethod.Post))
-{
-    @Html.Kendo().DateTimePickerFor(m => m).Name("datePicker")
-    <input type="submit" value="Submit"/>
-}
-
-@section Scripts{
-    <script>
-    </script>
-}
+﻿Admin Home

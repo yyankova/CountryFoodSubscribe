@@ -10,7 +10,7 @@
 
     public class SubscriptionsManagerController : Controller
     {
-        public ActionResult List()
+        public ActionResult Index()
         {
             // Add filter by subscription state
             return this.View();
