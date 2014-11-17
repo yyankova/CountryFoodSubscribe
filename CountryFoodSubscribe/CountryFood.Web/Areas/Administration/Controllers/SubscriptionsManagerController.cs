@@ -1,18 +1,19 @@
-﻿using CountryFood.Web.InputModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace CountryFood.Web.Areas.Administration.Controllers
+﻿namespace CountryFood.Web.Areas.Administration.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+    
+    using CountryFood.Web.InputModels;
+
     public class SubscriptionsManagerController : Controller
     {
         public ActionResult List()
         {
             // Add filter by subscription state
-            return View();
+            return this.View();
         }
 
         [HttpGet]

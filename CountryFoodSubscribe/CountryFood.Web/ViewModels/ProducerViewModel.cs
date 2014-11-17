@@ -18,7 +18,8 @@
         public void CreateMappings(AutoMapper.IConfiguration configuration)
         {
             configuration.CreateMap<Producer, ProducerViewModel>()
-                .ForMember(m => m.Village, 
+                .ForMember(
+                m => m.Village,
                     options => options.MapFrom(m => m.Village.Name));
         }
     }

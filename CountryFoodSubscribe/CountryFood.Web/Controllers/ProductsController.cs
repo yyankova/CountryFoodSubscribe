@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace CountryFood.Web.Controllers
+﻿namespace CountryFood.Web.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
     public class ProductsController : Controller
     {
         // GET: Products
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Vote()
         {
-            //Ajax call +1/-1
             return null;
         }
     }

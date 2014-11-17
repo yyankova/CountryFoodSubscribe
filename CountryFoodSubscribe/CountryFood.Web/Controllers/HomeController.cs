@@ -22,7 +22,7 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         [ChildActionOnly]
@@ -33,7 +33,7 @@
                 .Project()
                 .To<ProductViewModel>()
                 .ToList();
-            return PartialView("~/Views/Shared/_ProductsPartial.cshtml", products);
+            return this.PartialView("~/Views/Shared/_ProductsPartial.cshtml", products);
         }
 
         [ChildActionOnly]
@@ -44,7 +44,7 @@
                 .Project()
                 .To<ProducerViewModel>()
                 .ToList();
-            return PartialView("~/Views/Shared/_ProducersPartial.cshtml", producers);
+            return this.PartialView("~/Views/Shared/_ProducersPartial.cshtml", producers);
         }
     }
 }

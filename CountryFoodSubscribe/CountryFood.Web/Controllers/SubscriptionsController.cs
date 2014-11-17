@@ -82,8 +82,8 @@
         {
             if (productId == null)
             {
-                TempData["errorMessage"] = "No product selected";
-                return RedirectToAction("Index", "Products", null);
+                this.TempData["errorMessage"] = "No product selected";
+                return this.RedirectToAction("Index", "Products", null);
             }
 
             var subscription = new SubscriptionInputModel()
@@ -94,7 +94,7 @@
                 Frequency = CountryFood.Models.Frequency.Yearly
             };
 
-            return View(subscription);
+            return this.View(subscription);
         }
 
         [HttpPost]
@@ -128,8 +128,8 @@
                 .Add(subscription);
             this.Data.SaveChanges();
 
-            TempData["successMessage"] = "Subscription successfully created!";
-            return RedirectToAction("List");
+            this.TempData["successMessage"] = "Subscription successfully created!";
+            return this.RedirectToAction("List");
         }
 
         [HttpGet]

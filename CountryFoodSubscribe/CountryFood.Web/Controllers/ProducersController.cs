@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace CountryFood.Web.Controllers
+﻿namespace CountryFood.Web.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
     public class ProducersController : Controller
     {
         // GET: Producers
@@ -13,11 +13,11 @@ namespace CountryFood.Web.Controllers
         {
             if (id == null)
             {
-                TempData["errorMessage"] = "No such id of product!";
-                return RedirectToAction("Index", "Home");
+                this.TempData["errorMessage"] = "No such id of product!";
+                return this.RedirectToAction("Index", "Home");
             }
 
-            return View();
+            return this.View();
         }
     }
 }

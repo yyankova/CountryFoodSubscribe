@@ -2,10 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     using CountryFood.Models;
     using CountryFood.Web.Infrastructure.Mappings;
-    using System.ComponentModel.DataAnnotations;
 
     public class SubscriptionShortViewModel : IMapFrom<Subscription>, IHaveCustomMappings
     {
@@ -16,8 +16,9 @@
         public void CreateMappings(AutoMapper.IConfiguration configuration)
         {
             configuration.CreateMap<Subscription, SubscriptionShortViewModel>()
-                .ForMember(m => m.Title,
-                    options => options.MapFrom(m => m.Product.Name + " by " +  m.Product.Producer.Name));
+                .ForMember(
+                m => m.Title,
+                    options => options.MapFrom(m => m.Product.Name + " by " + m.Product.Producer.Name));
         }
     }
 }

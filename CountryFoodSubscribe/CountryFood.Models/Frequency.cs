@@ -1,6 +1,7 @@
-﻿using System.ComponentModel;
-namespace CountryFood.Models
+﻿namespace CountryFood.Models
 {
+    using System.ComponentModel;
+
     public enum Frequency
     {
         [Description("Once a week")]

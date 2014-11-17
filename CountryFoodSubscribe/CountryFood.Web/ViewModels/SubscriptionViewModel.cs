@@ -2,10 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     using CountryFood.Models;
     using CountryFood.Web.Infrastructure.Mappings;
-    using System.ComponentModel.DataAnnotations;
 
     public class SubscriptionViewModel : IMapFrom<Subscription>, IHaveCustomMappings
     {
@@ -33,15 +33,18 @@
         public void CreateMappings(AutoMapper.IConfiguration configuration)
         {
             configuration.CreateMap<Subscription, SubscriptionViewModel>()
-                .ForMember(m => m.Product,
+                .ForMember(
+                m => m.Product,
                     options => options.MapFrom(m => m.Product.Name));
 
             configuration.CreateMap<Subscription, SubscriptionViewModel>()
-                .ForMember(m => m.Producer,
+                .ForMember(
+                m => m.Producer,
                     options => options.MapFrom(m => m.Product.Producer.Name));
 
             configuration.CreateMap<Subscription, SubscriptionViewModel>()
-                .ForMember(m => m.Title,
+                .ForMember(
+                m => m.Title,
                     options => options.MapFrom(m => m.Product.Name + " by " + m.Product.Producer.Name));
         }
     }

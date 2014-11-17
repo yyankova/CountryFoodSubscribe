@@ -15,18 +15,19 @@
     {
         columns.Bound(p => p.Id).Width(60);
         columns.Bound(p => p.Name);
-        columns.Bound(p => p.ProducerName).EditorTemplateName("Producer");
+        columns.Bound(p => p.Producer).EditorTemplateName("Producer");
         columns.Bound(p => p.Category).EditorTemplateName("Category");
-        columns.Bound(p => p.NumberOfSubscriptions).Width(100).Title("Orders");
-        columns.Bound(p => p.PositiveVotes).Width(60).Title("-");
-        columns.Bound(p => p.NegativeVotes).Width(60).Title("+");
-        columns.Command(command => { command.Destroy(); });
+        columns.Bound(p => p.NumberOfSubscriptions).Width(100).Title("Orders").Hidden();
+        columns.Bound(p => p.PositiveVotes).Width(60).Title("-").Hidden();
+        columns.Bound(p => p.NegativeVotes).Width(60).Title("+").Hidden();
+        columns.Command(command => { command.Destroy(); command.Edit(); });
     })
-    .Pageable()
+    .Pageable(p => { p.Refresh(true); })
     .Sortable()
     .Scrollable()
     .Filterable()
     .ToolBar(toolbar => { toolbar.Create(); })
+    .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("Product"))
     //.HtmlAttributes(new { style = "height:430px;" })
     .DataSource(dataSource => dataSource
         .Ajax()
@@ -42,5 +43,6 @@
         .Read(read => read.Action("GetProducts", controllerName))
         .Create(create => create.Action("Create", controllerName))
         .Destroy(destroy => destroy.Action("Delete", controllerName))
+        .Update(update => update.Action("Update", controllerName))
      )
 )

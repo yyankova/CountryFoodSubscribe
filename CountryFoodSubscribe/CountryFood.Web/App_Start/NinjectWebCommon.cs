@@ -6,11 +6,10 @@ namespace CountryFood.Web.App_Start
     using System;
     using System.Web;
 
+    using CountryFood.Data;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
     using Ninject;
     using Ninject.Web.Common;
-    using CountryFood.Data;
 
     public static class NinjectWebCommon 
     {

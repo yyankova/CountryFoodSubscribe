@@ -6,10 +6,9 @@
     using System.Web;
     using System.Web.Mvc;
 
-    using CountryFood.Web.Controllers;
     using CountryFood.Data;
-
-    //[Authorize(Roles="Admin")]
+    using CountryFood.Web.Controllers;
+    // [Authorize(Roles="Admin")]
     public class AdminController : BaseController
     {
         public AdminController(IApplicationData data) : base(data)

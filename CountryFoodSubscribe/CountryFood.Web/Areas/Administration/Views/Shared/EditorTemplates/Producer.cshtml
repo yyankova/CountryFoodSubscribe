@@ -2,9 +2,11 @@
           .Name("Producer")
           .DataTextField("Name")
           .DataValueField("Id")
-          .OptionLabel("")
+          .OptionLabel("Select producer...")
           .DataSource(dataSource => dataSource
                        .Read(read => read.Action("ReadProducers", "ProducersManager"))
+          
              )
+             
 )
 

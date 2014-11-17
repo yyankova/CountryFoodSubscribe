@@ -1,15 +1,14 @@
 ﻿namespace CountryFood.Data
 {
+    using System;
     using System.Data.Entity;
     using System.Linq;
 
-    using Microsoft.AspNet.Identity.EntityFramework;
-
+    using CountryFood.Data.Common;
     using CountryFood.Data.Migrations;
     using CountryFood.Models;
-    using CountryFood.Data.Common;
-    using System;
-
+    using Microsoft.AspNet.Identity.EntityFramework;
+    
     public class ApplicationDbContext : IdentityDbContext<AppUser>, IApplicationDbContext
     {
         public ApplicationDbContext()

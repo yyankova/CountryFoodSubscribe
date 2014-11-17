@@ -20,13 +20,13 @@
         [HttpGet]
         public ActionResult Index()
         {
-            return View(DateTime.Now);
+            return this.View(DateTime.Now);
         }
 
         [HttpPost]
         public ActionResult Index(DateTime datePicker)
         {
-            return RedirectToAction("Index");
+            return this.RedirectToAction("Index");
         }
     }
 }

@@ -3,7 +3,7 @@
 <div class="form-group">
     @Html.LabelFor(m => m, new { @class = "col-lg-2 control-label" })
     <div class="col-lg-10">
-        @Html.TextBox("", ViewData.TemplateInfo.FormattedModelValue, new { @class = "form-control text-box single-line", placeholder = ViewData["placeholder"] })
+        @Html.TextBox("", ViewData.TemplateInfo.FormattedModelValue, new { @class = "form-control text-box single-line", placeholder = "Title" })
         @if (ViewData.ModelMetadata.IsRequired)
         {
             @Html.ValidationMessageFor(m => m, "", new { @class = "text-danger" })

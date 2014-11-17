@@ -519,6 +519,7 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Producer.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Category.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Product.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Libraries\Kendo\Kendo.Mvc.dll" />
     <Content Include="Scripts\bootstrap.js" />

@@ -1,12 +1,12 @@
 ﻿namespace CountryFood.Web.Controllers
 {
-    using CountryFood.Data;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
 
+    using CountryFood.Data;
     using Microsoft.AspNet.Identity;
 
     public class BaseController : Controller

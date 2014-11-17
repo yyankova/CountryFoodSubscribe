@@ -7,13 +7,12 @@
     using System.Web.Mvc;
 
     using AutoMapper.QueryableExtensions;
-    using Kendo.Mvc.UI;
-    using Kendo.Mvc.Extensions;
-
     using CountryFood.Data;
     using CountryFood.Web.Areas.Administration.Controllers.Base;
     using CountryFood.Web.InputModels;
     using CountryFood.Web.ViewModels;
+    using Kendo.Mvc.Extensions;
+    using Kendo.Mvc.UI;
 
     public class ProducersManagerController : AdminController
     {

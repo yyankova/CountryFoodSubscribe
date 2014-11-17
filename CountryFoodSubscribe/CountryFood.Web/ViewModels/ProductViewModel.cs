@@ -1,5 +1,6 @@
 ﻿namespace CountryFood.Web.ViewModels
 {
+    using System.ComponentModel.DataAnnotations;
     using System.Linq;
 
     using CountryFood.Models;
@@ -9,13 +10,18 @@
     {
         public string Id { get; set; }
 
+        [Required]
+        [MinLength(5)]
+        [MaxLength(50)]
         public string Name { get; set; }
 
-        //public int CategoryID { get; set; }
-
+        [Required]
+        [UIHint("Category")]
         public string Category { get; set; }
 
-        public string ProducerName { get; set; }
+        [Required]
+        [UIHint("Producer")]
+        public string Producer { get; set; }
 
         public string NumberOfSubscriptions { get; set; }
 
@@ -28,8 +34,10 @@
             configuration.CreateMap<Product, ProductViewModel>()
                 .ForMember(m => m.Category, options => options.MapFrom(m => m.Category.Name));
             configuration.CreateMap<Product, ProductViewModel>()
-                .ForMember(m => m.ProducerName, options => options.MapFrom(m => m.Producer.Name));
+                .ForMember(m => m.Producer, options => options.MapFrom(m => m.Producer.Name));
             
+            configuration.CreateMap<Product, ProductViewModel>()
+                .ForMember(m => m.Id, options => options.MapFrom(x => x.ID.ToString()));
             configuration.CreateMap<Product, ProductViewModel>()
                 .ForMember(m => m.NumberOfSubscriptions, options => options.MapFrom(x => x.Subscriptions.AsEnumerable().Count().ToString()));
             configuration.CreateMap<Product, ProductViewModel>()

@@ -16,7 +16,7 @@
 
         public string Name { get; set; }
 
-        //TODO: List of pictures
+        // TODO: List of pictures
         public byte[] Picture { get; set; }
 
         public string Description { get; set; }
