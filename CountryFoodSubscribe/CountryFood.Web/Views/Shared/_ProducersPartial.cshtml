@@ -1,8 +1,9 @@
 ﻿@model ICollection<CountryFood.Web.ViewModels.ProducerViewModel>
-
-@foreach (var product in Model)
+<h3>Producers</h3>
+@foreach (var producer in Model)
 {
-    <p>
-        @product.Name
-    </p>
+    <div class="row">
+        <a href="">@producer.Name</a>
+        <p>@producer.Description</p>
+    </div>
 }

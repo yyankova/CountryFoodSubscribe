@@ -1,7 +1,19 @@
 ﻿@model ICollection<CountryFood.Web.ViewModels.ProductViewModel>
+<h3>Products</h3>
 @foreach (var product in Model)
 {
-    <p>
-        @product.Name
-    </p>
+    <div class="panel panel-body">
+        <div>
+            <a href="">@product.Name</a>
+        </div>
+        <div>
+            <span>Votes: </span> @(int.Parse(product.PositiveVotes) + int.Parse(product.NegativeVotes))
+        </div>
+        <div>
+            <span>Number of subscriptions: </span> @product.NumberOfSubscriptions
+        </div>
+        <div>
+            <span>By: </span>@product.Producer
+        </div>
+    </div>
 }
