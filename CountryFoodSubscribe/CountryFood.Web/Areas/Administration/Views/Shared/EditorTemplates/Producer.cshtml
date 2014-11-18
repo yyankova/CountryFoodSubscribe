@@ -4,8 +4,7 @@
           .DataValueField("Id")
           .OptionLabel("Select producer...")
           .DataSource(dataSource => dataSource
-                       .Read(read => read.Action("ReadProducers", "ProducersManager"))
-          
+                       .Read(read => read.Action("ReadProducers", "ProducersManager"))          
              )
              
 )

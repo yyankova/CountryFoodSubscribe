@@ -24,14 +24,13 @@
     })
     .Pageable(p => { p.Refresh(true); })
     .Sortable()
-    .Scrollable()
     .Filterable()
     .ToolBar(toolbar => { toolbar.Create(); })
     .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("Product"))
     //.HtmlAttributes(new { style = "height:430px;" })
     .DataSource(dataSource => dataSource
         .Ajax()
-        .PageSize(5)
+        .PageSize(10)
         .Model(m => {
             m.Id(p => p.Id);
             m.Field(p => p.Id).Editable(false);
@@ -42,7 +41,7 @@
         )
         .Read(read => read.Action("GetProducts", controllerName))
         .Create(create => create.Action("Create", controllerName))
-        .Destroy(destroy => destroy.Action("Delete", controllerName))
+            .Destroy(destroy => destroy.Action("Destroy", controllerName))
         .Update(update => update.Action("Update", controllerName))
      )
 )

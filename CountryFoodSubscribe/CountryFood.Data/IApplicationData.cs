@@ -5,21 +5,21 @@
 
     public interface IApplicationData
     {
-        IRepository<AppUser> Users { get; }
+        IDeletableEntityRepository<AppUser> Users { get; }
 
-        IRepository<Region> Regions { get; }
+        IDeletableEntityRepository<Region> Regions { get; }
 
-        IRepository<Village> Villages { get; }
+        IDeletableEntityRepository<Village> Villages { get; }
 
-        IRepository<ProductCategory> Categories { get; }
+        IDeletableEntityRepository<ProductCategory> Categories { get; }
 
-        IRepository<Producer> Producers { get; }
+        IDeletableEntityRepository<Producer> Producers { get; }
 
-        IRepository<Product> Products { get; }
+        IDeletableEntityRepository<Product> Products { get; }
 
-        IRepository<Subscription> Subscriptions { get; }
+        IDeletableEntityRepository<Subscription> Subscriptions { get; }
 
-        IRepository<Vote> Votes { get; }
+        IDeletableEntityRepository<Vote> Votes { get; }
 
         void SaveChanges();
     }

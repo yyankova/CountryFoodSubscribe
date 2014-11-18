@@ -56,44 +56,78 @@
             {
                 var categoryId = int.Parse(model.Category);
                 var producerId = int.Parse(model.Producer);
+                var category = this.Data
+                    .Categories
+                    .All()
+                    .FirstOrDefault(c => c.ID == categoryId);
+                if (category == null)
+                {
+                    this.TempData["errorMessage"] = "Category is not valid!";
+                    return null;
+                }
+
+                var producer = this.Data
+                    .Producers
+                    .All()
+                    .FirstOrDefault(p => p.ID == producerId);
+                if (producer == null)
+                {
+                    this.TempData["errorMessage"] = "Producer is not valid!";
+                    return null;
+                }
+
                 var dbProduct = new Product()
                 {
                     Name = model.Name,
-                    CategoryID = categoryId,
-                    ProducerID = producerId
+                    Category = category,
+                    Producer = producer
                 };
 
                 this.Data.Products.Add(dbProduct);
                 this.Data.SaveChanges();
-                AutoMapper.Mapper.Map<Product, ProductViewModel>(dbProduct, model);
+                model.Category = category.Name;
+                model.Producer = producer.Name;
                 return this.Json(new[] { model }.ToDataSourceResult(request, this.ModelState));
             }
-
-            return null;
-        }
-
-        [HttpGet]
-        public ActionResult Delete()
-        {
+            
             return null;
         }
 
         [HttpPost]
-        public ActionResult Delete(SubscriptionInputModel model)
+        public ActionResult Update([DataSourceRequest]DataSourceRequest request, ProductViewModel model)
         {
-            return null;
-        }
+            if (model != null && ModelState.IsValid)
+            {
+                var dbModel = this.Data
+                    .Products
+                    .All()
+                    .FirstOrDefault(p => p.ID.ToString() == model.Id);
+                if (dbModel != null)
+                {
+                    dbModel.Name = model.Name;
+                    dbModel.CategoryID = int.Parse(model.Category);
+                    dbModel.ProducerID = int.Parse(model.Producer);
+                    this.Data.SaveChanges();
 
-        [HttpGet]
-        public ActionResult Update()
-        {
-            return null;
+                    model.Category = dbModel.Category.Name;
+                    model.Producer = dbModel.Producer.Name;
+                };
+            }
+
+            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }
 
         [HttpPost]
-        public ActionResult Update(ProductInputModel model)
+        public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, ProductViewModel model)
         {
-            return null;
+            if (model != null && ModelState.IsValid)
+            {
+                var dbModel = this.Data.Products.GetById(int.Parse(model.Id));
+                this.Data.Products.Delete(dbModel);
+                this.Data.SaveChanges();
+            }
+
+            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
         }
     }
 }

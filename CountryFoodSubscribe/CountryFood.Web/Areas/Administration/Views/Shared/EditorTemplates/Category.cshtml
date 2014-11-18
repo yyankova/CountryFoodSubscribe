@@ -2,7 +2,7 @@
           .Name("Category")
           .DataTextField("Name")
           .DataValueField("Id")
-          .OptionLabel("")
+          .OptionLabel("Select category...")
           .DataSource(dataSource => dataSource
                        .Read(read => read.Action("ReadCategories", "Categories"))
                  )

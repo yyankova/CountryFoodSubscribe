@@ -7,10 +7,11 @@
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.IgnoreList.Clear();
+
             BundleScripts(bundles);
             BundleStyles(bundles);
 
-            bundles.IgnoreList.Clear();
             BundleTable.EnableOptimizations = true;
         }
 
@@ -18,7 +19,7 @@
         {
             bundles.Add(new 
                 ScriptBundle("~/bundles/jquery").Include(
-                       "~/Scripts/Kendo/jquery.min.js"));
+                       "~/Scripts/kendo/jquery.min.js"));
 
             bundles.Add(new
                 ScriptBundle("~/bundles/jquery-unobtrusive").Include(
