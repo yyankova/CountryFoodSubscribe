@@ -15,5 +15,8 @@
         <div>
             <span>By: </span>@product.Producer
         </div>
+        <div>
+            @Html.ActionLink("Subscribe", "Create", "Subscriptions", new { productId = @product.Id }, new { })
+        </div>
     </div>
 }
